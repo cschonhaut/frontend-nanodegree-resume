@@ -40,7 +40,8 @@ var work = {
 	"work.position": "junior graphic designer",
 	"work.employer": "Graphcom",
 	"work.years": "2",
-	"work.city": "Gettysburg"};
+	"work.city": "Gettysburg"
+};
 
 var education = {
 	"schools": [
