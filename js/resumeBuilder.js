@@ -37,10 +37,12 @@ var bio = {
 };
 
 var work = {
-	"work.position": "junior graphic designer",
-	"work.employer": "Graphcom",
-	"work.years": "2",
-	"work.city": "Gettysburg"
+"jobs": [{Creative Administrator, Junior Designer,
+	"position": "junior graphic designer",
+	"employer": "Graphcom",
+	"years": "2",
+	"city": "Gettysburg"
+	}]
 };
 
 var education = {
