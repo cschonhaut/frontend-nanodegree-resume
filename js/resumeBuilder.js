@@ -52,7 +52,7 @@ var work = {
 	"title": "Junior Graphic Designer",
 	"dates": "August 2014 - Present",
 	"location": "Gettysburg",
-	"description": "My responsibilities as a designer have grown tremendously since my time as an intern. I began as a print-heavy designer, focusing primarily on magazines. I managed up to 4-5 different publications at a time. Today I still oversee some magazine operations, but I am now expanding more into web design and development. My goal is to bridge the gap between the design and development teams, as well as make the company more profitable. In addition to expanding my skillset and responsibilities, my project portfolio has grown vastly as well. In the past 2 years I have worked on signage, branding, advertising, magazines, annual reports, emialers, landing pages, websites, and more."}]
+	"description": "My responsibilities as a designer have grown tremendously since my time as an intern. I began as a print-heavy designer, focusing primarily on magazines. I managed up to 4-5 different publications at a time. Today I still oversee some magazine operations, but I am now expanding more into web design and development. My goal is to bridge the gap between the design and development teams, as well as make the company more profitable. In addition to expanding my skillset and responsibilities, my project portfolio has grown vastly as well. In the past 2 years I have worked on signage, branding, advertising, magazines, annual reports, emailers, landing pages, websites, and more."}]
 };
 function displayWork(){
 	for (job in work.jobs) {
@@ -75,38 +75,68 @@ function displayWork(){
 	}
 }
 displayWork();
+
 var education = {
 "schools": [{
 	"name": "Shippensburg University",
-	"city": "Shippensburg",
+	"location": "Shippensburg",
 	"degree": "BA",
-	"cerifications": "Graphic Design",
 	"major": "Art & Design",
-	"minor": "Communications Journalism",
-	"years": "2010-2014"},
+	"minor": "Communications Journalism and Graphic Design",
+	"dates": "2010-2014"},
 
-	{"name": "Udacity",
-	"type": "Online Course",
-	"program": "Front-End Web Development",
-	"degree": "Nano"}
+	{"school": "Udacity",
+	"classes": "Front-End Web Development",
+	"dates": "2016"}
 ]};
 
-var projects = {
-	"project 1": "Portfolio Site",
-	"project 2": "Online Resume"
-};
+// var formattedContacts = [];
+// formattedContacts.push(HTMLemail.replace("%data%", bio.contacts.email));
+// formattedContacts.push(HTMLmobile.replace("%data%", bio.contacts.phone));
+// formattedContacts.push(HTMLlinkedin.replace("%data%", bio.contacts.linkedin));
+// formattedContacts.push(HTMLgithub.replace("%data%", bio.contacts.github));
+// formattedContacts.push(HTMLbehance.replace("%data%", bio.contacts.behance));
+// $("#topContacts").append(formattedContacts);
 
-/*bio.display = function () {
-	'use strict';
-	//var github = HTMLgithub.replace("%data%", <a class=\)
+/*var projects = {
+"projects": [{
+	"title": "Portfolio Site",
+	"dates": "March 2016",
+	"description": "Project 1 in Front-End Developer Nanodegree. HTML/CSS.",
+	"images": "images/project1"
+},
+{
+	"title": "Online Resume",
+	"dates": "May 2016",
+	"description": "Project 2 in Front-End Developer Nanodegree. JavaScript.",
+	"images":}];
 
-if (bio.contacts.length > 0) {
-	$("#header").append(HTMLcontactsStart);*/
+projects.display = function() {
+	//encapsulation code goes here
+	for (project in projects.projects) {
+		$ ("#projects").append(HTMLprojectsStart);
+
+	var formattedTitle = HTMLprojectsStart.replace("%data%", projects.projects[projects].title);
+	$ ("#projects-entry:last").append(formattedTitle);
+
+	var formattedDates = HTMLprojectsStart.replace("%data%", projects.projects[projects].title);
+	$ ("#projects-entry:last").append(formattedDates);
+
+	var formattedDescription = HTMLprojectsStart.replace("%data%", projects.projects[projects].title);
+	$ ("#projects-entry:last") = HTMLprojectsStart.replace("%data%", projects.projects[projects].title);
+
+	if (projects.projects[projects].images.length > 0) {
+		for (images in projects.projects[projects].images) {
+			var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[projects]).images[images]);
+		$(".projects-entry:last").append(formattedImage);
+		}
+	}
+}*/
 
 var role = "Designer/Developer";
 var formattedRole = HTMLheaderRole.replace("%data%", role);
 
-var name = "Chelsea";
+var name = "Chelsea Schonhaut";
 var formattedName = HTMLheaderName.replace("%data%", name);
 
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture);
@@ -117,44 +147,13 @@ $("#header").prepend(formattedName);
 $("#header").append(formattedBioPic);
 $("#header").append(formattedWelcomeMsg);
 
-//attempt 1 to make contacts show
-//var formattedContacts = [];
-//formattedContacts.push(HTMLemail.replace("%data%", bio.contacts.email));
-//formattedContacts.push(HTMLphone.replace("%data%", bio.contacts.phone));
-//formattedContacts.push(HTMLlinkedin.replace("%data%", bio.contacts.linkedin));
-//formattedContacts.push(HTMLgithub.replace("%data%", bio.contacts.github));
-//formattedContacts.push(HTMLbehance.replace("%data%", bio.contacts.behance));
-//more attempts
-/*var contacts = "Contacts";
-var formattedContacts = HTMLcontacts.replace("%data%", bio.contacts[0]);
-$ ("#contacts").append(formattedContacts);
-formattedSkill = HTMLcontacts.replace("%data%", bio.contacts[1]);
-$ ("#contacts").append(formattedContacts);
-formattedSkill = HTMLcontacts.replace("%data%", bio.contacts[2]);
-$ ("#contacts").append(formattedContacts);
-formattedSkill = HTMLcontacts.replace("%data%", bio.contacts[3]);
-$("#contacts").append(formattedContacts)
-formattedSkill = HTMLcontacts.replace("%data%", bio.contacts[4]);
-$("#contacts").append(formattedContacts);
-formattedSkill = HTMLcontacts.replace("%data%", bio.contacts[5]);
-$("#contacts").append(formattedContacts);*/
-
-//NUmber 3
-if (bio.contacts.length > 0) {
-	$("#header").append(HTMLcontactsStart);
-
-var formattedContacts = HTMLcontacts.replace("%data%", bio.contacts[0]);
-$ ("#contacts").append(formattedContacts);
-formattedSkill = HTMLcontacts.replace("%data%", bio.contacts[1]);
-$ ("#contacts").append(formattedContacts);
-formattedSkill = HTMLcontacts.replace("%data%", bio.contacts[2]);
-$ ("#contacts").append(formattedContacts);
-formattedSkill = HTMLcontacts.replace("%data%", bio.contacts[3]);
-$("#contacts").append(formattedContacts)
-formattedSkill = HTMLcontacts.replace("%data%", bio.contacts[4]);
-$("#contacts").append(formattedContacts);
-formattedSkill = HTMLcontacts.replace("%data%", bio.contacts[5]);
-$("#contacts").append(formattedContacts);}
+var formattedContacts = [];
+formattedContacts.push(HTMLemail.replace("%data%", bio.contacts.email));
+formattedContacts.push(HTMLmobile.replace("%data%", bio.contacts.phone));
+formattedContacts.push(HTMLlinkedin.replace("%data%", bio.contacts.linkedin));
+formattedContacts.push(HTMLgithub.replace("%data%", bio.contacts.github));
+formattedContacts.push(HTMLbehance.replace("%data%", bio.contacts.behance));
+$("#topContacts").append(formattedContacts);
 
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
@@ -166,20 +165,6 @@ $ ("#skills").append(formattedSkill);
 formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
 $ ("#skills").append(formattedSkill);
 formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-$("#skills").append(formattedSkill);}
+$("#skills").append(formattedSkill);
 
-/*
-$(document).ready = function(){
-$("#main").append("Hi there");
 }
-*/
-/*
-$("#main").append(work["position"]);
-$("#main").append(education.name);
-*/
-/*
-$(document).ready(function(){
-$("#main").prepend("<p>"+work["work.position"]+"</p>");
-$("#main").prepend("<p>"+education["schools"][1].name+"</p>");
-});
-*/
