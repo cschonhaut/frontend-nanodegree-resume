@@ -77,62 +77,73 @@ function displayWork(){
 displayWork();
 
 var education = {
-"schools": [{
+"schools": {
 	"name": "Shippensburg University",
 	"location": "Shippensburg",
 	"degree": "BA",
 	"major": "Art & Design",
 	"minor": "Communications Journalism and Graphic Design",
 	"dates": "2010-2014"},
-
-	{"school": "Udacity",
-	"classes": "Front-End Web Development",
+"online": {
+	"title": "Udacity - Front-End Web Development",
 	"dates": "2016"}
-]};
+};
 
-// var formattedContacts = [];
-// formattedContacts.push(HTMLemail.replace("%data%", bio.contacts.email));
-// formattedContacts.push(HTMLmobile.replace("%data%", bio.contacts.phone));
-// formattedContacts.push(HTMLlinkedin.replace("%data%", bio.contacts.linkedin));
-// formattedContacts.push(HTMLgithub.replace("%data%", bio.contacts.github));
-// formattedContacts.push(HTMLbehance.replace("%data%", bio.contacts.behance));
-// $("#topContacts").append(formattedContacts);
+//Attempt 1 for Education section
 
-/*var projects = {
+var formattedEducation = [];
+formattedEducation.push(HTMLschoolName.replace("%data%", education.schools.name).replace("%data_degree%", education.schools.degree));
+//formattedEducation.push(HTMLschoolName.replace("%data_degree%", education.schools.degree));
+formattedEducation.push(HTMLschoolDates.replace("%data%", education.schools.dates));
+formattedEducation.push(HTMLschoolLocation.replace("%data%", education.schools.location));
+formattedEducation.push(HTMLschoolMajor.replace("%data%", education.schools.major));
+formattedEducation.push(HTMLschoolMinor.replace("%data%", education.schools.minor));
+formattedEducation.push(HTMLonlineTitle.replace("%data%", education.online.title));
+formattedEducation.push(HTMLschoolDates.replace("%data%", education.online.dates));
+//console.log(formattedEducation);
+$("#education").append(HTMLschoolStart);
+$(".education-entry").append(formattedEducation);
+
+var projects = {
 "projects": [{
 	"title": "Portfolio Site",
 	"dates": "March 2016",
 	"description": "Project 1 in Front-End Developer Nanodegree. HTML/CSS.",
 	"images": "images/project1"
-},
-{
+	},
+	{
 	"title": "Online Resume",
 	"dates": "May 2016",
-	"description": "Project 2 in Front-End Developer Nanodegree. JavaScript.",
-	"images":}];
+	"description": "Project 2 in Front-End Developer Nanodegree. JavaScript."
+	}]
+}; // closing:: var projects
 
-projects.display = function() {
-	//encapsulation code goes here
-	for (project in projects.projects) {
-		$ ("#projects").append(HTMLprojectsStart);
+/**/
+ projects.display = function() {
 
-	var formattedTitle = HTMLprojectsStart.replace("%data%", projects.projects[projects].title);
-	$ ("#projects-entry:last").append(formattedTitle);
+ 	for (project in projects.projects) {
+ 		$("#projects").append(HTMLprojectStart);
 
-	var formattedDates = HTMLprojectsStart.replace("%data%", projects.projects[projects].title);
-	$ ("#projects-entry:last").append(formattedDates);
+		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		$(".project-entry:last").append(formattedTitle);
 
-	var formattedDescription = HTMLprojectsStart.replace("%data%", projects.projects[projects].title);
-	$ ("#projects-entry:last") = HTMLprojectsStart.replace("%data%", projects.projects[projects].title);
+		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+		$(".project-entry:last").append(formattedDates);
 
-	if (projects.projects[projects].images.length > 0) {
-		for (images in projects.projects[projects].images) {
-			var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[projects]).images[images]);
-		$(".projects-entry:last").append(formattedImage);
-		}
+		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(formattedDescription);
+/* */
+		//if (projects.projects[project].images.length > 0) {
+			//for (images in projects.projects[project].images) {
+				//var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project]).images[image]);
+				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
+				$(".project-entry:last").append(formattedImage);
+			//}
+		//}
 	}
-}*/
 
+ }; // closing:: projects.display = function()
+projects.display();
 var role = "Designer/Developer";
 var formattedRole = HTMLheaderRole.replace("%data%", role);
 
