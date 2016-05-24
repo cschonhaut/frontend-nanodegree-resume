@@ -25,11 +25,11 @@ var bio = {
 		"github": "cschonhaut",
 		"behance": "cschonhaut"
 	},
-	"welcomeMessage": "I am a Graphic Designer and Front-End Developer in training",
+	"welcomeMessage": "Graphic Designer and Front-End Developer in training",
 	"skills": [
 		"Front-End Development", "Animation", "Graphic Design", "Administration/Management"
 	],
-	"picture": "images/me.jpg"
+	"picture": "images/CS-web.png"
 };
 
 var work = {
@@ -146,6 +146,8 @@ var projects = {
 projects.display();
 var role = "Designer/Developer";
 var formattedRole = HTMLheaderRole.replace("%data%", role);
+
+$("#mapDiv").append(googleMap);
 
 var name = "Chelsea Schonhaut";
 var formattedName = HTMLheaderName.replace("%data%", name);
