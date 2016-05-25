@@ -19,13 +19,14 @@ var bio = {
 	"name": "Chelsea Schonhaut",
 	"role": "Designer/Developer",
 	"contacts": {
+		"mobile": "717-587-6257",
 		"email": "cschonhaut@gmail.com",
-		"phone": "717-587-6257",
-		"linkedin": "chelsea-schonhaut",
 		"github": "cschonhaut",
-		"behance": "cschonhaut"
+		"linkedin": "chelsea-schonhaut",
+		"behance": "cschonhaut",
+		"location": "Hanover, PA"
 	},
-	"welcomeMessage": "Graphic Designer and Front-End Developer in training",
+	"welcomeMessage": "Graphic Designer and Front-End Developer",
 	"skills": [
 		"Front-End Development", "Animation", "Graphic Design", "Administration/Management"
 	],
@@ -37,21 +38,21 @@ var work = {
 	"employer": "Graphcom Creative",
 	"title": "Graphic Design Intern",
 	"dates": "January 2014 - May 2014",
-	"location": "Gettysburg",
+	"location": "Gettysburg, PA",
 	"description": "As a graphic design intern during my senior year of college, I quickly learned that I was not only in the right field, but also working at the right company. For 5 months I assisted the design and development teams with CMS data entry, branding projects, advertisements, magazine design, and much more. Fortunately I was offered a position at the company before graduation, and I am still there today."
 	},
 	{
 	"employer": "Graphcom Creative",
 	"title": "Creative Administrator",
 	"dates": "May 2014 - August 2014",
-	"location": "Gettysburg",
+	"location": "Gettysburg, PA",
 	"description": "Upon graduating college, there were no Junior Designer positions available at the company. However, Graphcom was looking for a Creative Administrative Assistant, and my knowledge of the company, organization skills, and leadership potential landed me the job. As Creative Administrator I oversaw a team of interns; gained experience in project management, client communication, and organization; and continued to assist the design and development teams while gaining valuable experience. After only 4 months in the job, I was promoted to Junior Designer. "
 	},
 	{
 	"employer": "Graphcom Creative",
 	"title": "Junior Graphic Designer",
 	"dates": "August 2014 - Present",
-	"location": "Gettysburg",
+	"location": "Gettysburg, PA",
 	"description": "My responsibilities as a designer have grown tremendously since my time as an intern. I began as a print-heavy designer, focusing primarily on magazines. I managed up to 4-5 different publications at a time. Today I still oversee some magazine operations, but I am now expanding more into web design and development. My goal is to bridge the gap between the design and development teams, as well as make the company more profitable. In addition to expanding my skillset and responsibilities, my project portfolio has grown vastly as well. In the past 2 years I have worked on signage, branding, advertising, magazines, annual reports, emailers, landing pages, websites, and more."}]
 };
 function displayWork(){
@@ -79,14 +80,16 @@ displayWork();
 var education = {
 "schools": {
 	"name": "Shippensburg University",
-	"location": "Shippensburg",
+	"location": "Shippensburg, PA",
 	"degree": "BA",
 	"major": "Art & Design",
 	"minor": "Communications Journalism and Graphic Design",
-	"dates": "2010-2014"},
+	"dates": "2010-2014",
+	"url": "http://www.ship.edu/"},
 "online": {
 	"title": "Udacity - Front-End Web Development",
-	"dates": "2016"}
+	"dates": "2016",
+	"url": "https://www.udacity.com/"}
 };
 
 //Attempt 1 for Education section
@@ -162,7 +165,7 @@ $("#header").append(formattedWelcomeMsg);
 
 var formattedContacts = [];
 formattedContacts.push(HTMLemail.replace("%data%", bio.contacts.email));
-formattedContacts.push(HTMLmobile.replace("%data%", bio.contacts.phone));
+formattedContacts.push(HTMLmobile.replace("%data%", bio.contacts.mobile));
 formattedContacts.push(HTMLlinkedin.replace("%data%", bio.contacts.linkedin));
 formattedContacts.push(HTMLgithub.replace("%data%", bio.contacts.github));
 formattedContacts.push(HTMLbehance.replace("%data%", bio.contacts.behance));
