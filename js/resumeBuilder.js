@@ -75,11 +75,18 @@ formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
 $("#skills").append(formattedSkill);
 
 }
-// TRYING TO MAKE FOOTER CONTACTS SHOW UP
+// ATTEMT #1 - TRYING TO MAKE FOOTER CONTACTS SHOW UP
 // for(i in formattedContactInfo) {
 // 	$("#topContacts").append(formattedContactInfo[i]);
 // 	$("#footerContacts").append(formattedContactInfo[i]);
 // }
+
+// ATTEMT #2 - TRYING TO MAKE FOOTER CONTACTS SHOW UP
+// $("#top-contacts, #footer-contacts").append(formattedMobile);
+// $("#top-contacts, #footer-contacts").append(formattedEmail);
+// $("#top-contacts, #footer-contacts").append(formattedLinkedIn);
+// $("#top-contacts, #footer-contacts").append(formattedGitHub);
+// $("#top-contacts, #footer-contacts").append(formattedBehance);
 
 //END BIO SECTION
 
@@ -107,7 +114,7 @@ var work = {
 	"description": "My responsibilities as a designer have grown tremendously since my time as an intern. I began as a print-heavy designer, focusing primarily on magazines. I managed up to 4-5 different publications at a time. Today I still oversee some magazine operations, but I am now expanding more into web design and development. My goal is to bridge the gap between the design and development teams, as well as make the company more profitable. In addition to expanding my skillset and responsibilities, my project portfolio has grown vastly as well. In the past 2 years I have worked on signage, branding, advertising, magazines, annual reports, emailers, landing pages, websites, and more."}]
 };
 function displayWork(){
-	for (job in work.jobs) {
+	for (var job in work.jobs) {
 		//create new div for work experience
 		$("#workExperience").append(HTMLworkStart);
 		//concat employer and title
@@ -148,7 +155,6 @@ var education = {
 
 var formattedEducation = [];
 formattedEducation.push(HTMLschoolName.replace("%data%", education.schools.name).replace("%data_degree%", education.schools.degree));
-//formattedEducation.push(HTMLschoolName.replace("%data_degree%", education.schools.degree));
 formattedEducation.push(HTMLschoolDates.replace("%data%", education.schools.dates));
 formattedEducation.push(HTMLschoolLocation.replace("%data%", education.schools.location));
 formattedEducation.push(HTMLschoolMajor.replace("%data%", education.schools.major));
@@ -159,17 +165,15 @@ formattedEducation.push(HTMLschoolDates.replace("%data%", education.online.dates
 $("#education").append(HTMLschoolStart);
 $(".education-entry").append(formattedEducation);
 
-projects.display();
-
 education.display = function() {
 	if(education.schools.length > 0 || education.onlineCourses.length > 0) {
 		for(i in education.schools) {
 			$("#education").append(HTMLschoolStart);
 
 			var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name).replace("#", education.schools[i].url);
-			var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
 			var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[i].datesAttended);
 			var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
+			var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
 			var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
 			var formattedSchoolMinor = HTMLschoolMinor.replace("%data%", education.schools[i].minor);
 
@@ -199,7 +203,6 @@ education.display = function() {
 }
 
 education.display();
-r
 //END EDUCATION SECTION
 
 //PROJECT SECTION
@@ -220,7 +223,7 @@ var projects = {
 
  projects.display = function() {
 
- 	for (project in projects.projects) {
+ 	for (var project in projects.projects) {
  		$("#projects").append(HTMLprojectStart);
 
 		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
