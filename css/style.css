@@ -71,10 +71,11 @@ p {
     line-height: 21px;
 }
 a {
-    color: #1560AD;
+    color: #899095;
     text-decoration: none;
     margin-top: 10px;
     display: block;
+
 }
 .welcome-message {
     font-size: 24px;

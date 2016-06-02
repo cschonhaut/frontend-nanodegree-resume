@@ -6,18 +6,6 @@ $(document).click(function(loc) {
 });
 //End Click Location Function
 
-//Internationalize Button
-function inName(name) {
-	name = name.trim().split(" ");
-	console.log(name);
-	name[1] = name[1].toUpperCase();
-	name[0] = name[0].slice(0,1).toUpperCase() +
-		name[0].slice(1).toLowerCase();
-	return name[0] +" "+name[1];
-}
-$('#main').append(internationalizeButton);
-//End Internationalize Button
-
 //BIO SECTION
 var bio = {
 	"name": "Chelsea Schonhaut",
@@ -35,7 +23,7 @@ var bio = {
 	"skills": [
 		"Front-End Development", "Animation", "Graphic Design", "Administration/Management"
 	],
-	"picture": "images/CS-web.png"
+	"biopic": "images/CS-web.png"
 };
 
 var role = "Designer/Developer";
@@ -43,10 +31,8 @@ var formattedRole = HTMLheaderRole.replace("%data%", role);
 
 $("#mapDiv").append(googleMap);
 
-var name = "Chelsea Schonhaut";
 var formattedName = HTMLheaderName.replace("%data%", name);
-
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture);
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
 var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
 $("#header").prepend(formattedRole);
@@ -61,6 +47,7 @@ formattedContacts.push(HTMLlinkedin.replace("%data%", bio.contacts.linkedin));
 formattedContacts.push(HTMLgithub.replace("%data%", bio.contacts.github));
 formattedContacts.push(HTMLbehance.replace("%data%", bio.contacts.behance));
 $("#topContacts").append(formattedContacts);
+$("#footerContacts").append(formattedContacts);
 
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
@@ -75,19 +62,6 @@ formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
 $("#skills").append(formattedSkill);
 
 }
-// ATTEMT #1 - TRYING TO MAKE FOOTER CONTACTS SHOW UP
-// for(i in formattedContactInfo) {
-// 	$("#topContacts").append(formattedContactInfo[i]);
-// 	$("#footerContacts").append(formattedContactInfo[i]);
-// }
-
-// ATTEMT #2 - TRYING TO MAKE FOOTER CONTACTS SHOW UP
-// $("#top-contacts, #footer-contacts").append(formattedMobile);
-// $("#top-contacts, #footer-contacts").append(formattedEmail);
-// $("#top-contacts, #footer-contacts").append(formattedLinkedIn);
-// $("#top-contacts, #footer-contacts").append(formattedGitHub);
-// $("#top-contacts, #footer-contacts").append(formattedBehance);
-
 //END BIO SECTION
 
 //WORK SECTION
@@ -111,9 +85,18 @@ var work = {
 	"title": "Junior Graphic Designer",
 	"dates": "August 2014 - Present",
 	"location": "Gettysburg, PA",
-	"description": "My responsibilities as a designer have grown tremendously since my time as an intern. I began as a print-heavy designer, focusing primarily on magazines. I managed up to 4-5 different publications at a time. Today I still oversee some magazine operations, but I am now expanding more into web design and development. My goal is to bridge the gap between the design and development teams, as well as make the company more profitable. In addition to expanding my skillset and responsibilities, my project portfolio has grown vastly as well. In the past 2 years I have worked on signage, branding, advertising, magazines, annual reports, emailers, landing pages, websites, and more."}]
+	"description": "My responsibilities as a designer have grown tremendously since beginning with the company. I began as a print-heavy designer, focusing primarily on magazines. I managed up to 4-5 different publications at a time. Today I still oversee some magazine operations, but I am now expanding more into web design and development. My goal is to bridge the gap between the design and development teams, as well as make the company more profitable. In addition to expanding my skillset and responsibilities, my project portfolio has grown vastly as well. In the past 2 years I have worked on signage, branding, advertising, magazines, annual reports, emailers, landing pages, websites, and more."}]
 };
-function displayWork(){
+
+
+// work.display = function() {
+// 	// Job Loop to replace and append data
+// 	this.jobs.forEach(function(job) {
+// 		// Declare vars for shorter lines later
+// 		var employer, title, where, dates, desc;
+// 		var data = '%data%';
+
+work.display = function(){
 	for (var job in work.jobs) {
 		//create new div for work experience
 		$("#workExperience").append(HTMLworkStart);
@@ -132,8 +115,8 @@ function displayWork(){
 	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 	$(".work-entry:last").append(formattedDescription);
 	}
-}
-displayWork();
+};
+work.display();
 //END WORK SECTION
 
 //EDUCATION SECTION
@@ -146,7 +129,7 @@ var education = {
 	"minor": "Communications Journalism and Graphic Design",
 	"dates": "2010-2014",
 	"url": "http://www.ship.edu/"},
-"online": {
+"onlineCourses": {
 	"title": "Front-End Web Development - Udacity",
 	"school": "Udacity",
 	"dates": "2016",
@@ -155,33 +138,35 @@ var education = {
 
 var formattedEducation = [];
 formattedEducation.push(HTMLschoolName.replace("%data%", education.schools.name).replace("%data_degree%", education.schools.degree));
-formattedEducation.push(HTMLschoolDates.replace("%data%", education.schools.dates));
 formattedEducation.push(HTMLschoolLocation.replace("%data%", education.schools.location));
+//formattedEducation.push(HTMLschoolDegree.replace("%data%", education.schools.degree));
+formattedEducation.push(HTMLschoolDates.replace("%data%", education.schools.dates));
 formattedEducation.push(HTMLschoolMajor.replace("%data%", education.schools.major));
 formattedEducation.push(HTMLschoolMinor.replace("%data%", education.schools.minor));
-formattedEducation.push(HTMLonlineTitle.replace("%data%", education.online.title));
-formattedEducation.push(HTMLschoolDates.replace("%data%", education.online.dates));
+formattedEducation.push(HTMLschoolURL.replace("%data%", education.schools.URL));
+formattedEducation.push(HTMLonlineTitle.replace("%data%", education.onlineCourses.title));
+formattedEducation.push(HTMLonlineDates.replace("%data%", education.onlineCourses.dates));
+//formattedEducation.push(HTMLonlineSchool.replace("%data%", education.onlineCourses.school));
+formattedEducation.push(HTMLonlineURL.replace("%data%", education.onlineCourses.URL));
 //console.log(formattedEducation);
 $("#education").append(HTMLschoolStart);
 $(".education-entry").append(formattedEducation);
+
+//this.schools.forEach(function(school) {
+//		var name, location, degree, dates, url, majors;
+//		var data = '%data%';
 
 education.display = function() {
 	if(education.schools.length > 0 || education.onlineCourses.length > 0) {
 		for(i in education.schools) {
 			$("#education").append(HTMLschoolStart);
 
-			var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[i].name).replace("#", education.schools[i].url);
-			var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[i].datesAttended);
-			var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
-			var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
-			var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
-			var formattedSchoolMinor = HTMLschoolMinor.replace("%data%", education.schools[i].minor);
-
 			$(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
-			$(".education-entry:last").append(formattedSchoolDates);
 			$(".education-entry:last").append(formattedSchoolLocation);
 			$(".education-entry:last").append(formattedSchoolMajor);
 			$(".education-entry:last").append(formattedSchoolMinor);
+			$(".education-entry:last").append(formattedSchoolDates);
+			$(".education-entry:last").append(formattedSchoolURL);
 		}
 
 		if(education.onlineCourses.length > 0) {
@@ -200,7 +185,7 @@ education.display = function() {
 		}
 
 	}
-}
+};
 
 education.display();
 //END EDUCATION SECTION
@@ -211,13 +196,13 @@ var projects = {
 	"title": "Portfolio Site",
 	"dates": "March 2016",
 	"description": "Project 1 in Front-End Developer Nanodegree - HTML/CSS",
-	"images": "images/project1"
+	"images": ["images/project1.png"]
 	},
 	{
 	"title": "Online Resume",
 	"dates": "May 2016",
 	"description": "Project 2 in Front-End Developer Nanodegree - JavaScript",
-	"images": "images/project2"
+	"images": ["images/project2.png"]
 	}]
 }; // closing:: var projects
 
