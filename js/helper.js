@@ -46,18 +46,22 @@ var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data% -- %data_degree%</a>';
-//var HTMLschoolDegree = ' -- %data%</a>';
+// original var from doc // var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 var HTMLschoolMinor = '<em><br>Minor: %data%</em>';
-var HTMLschoolURL = '<br><a href="#">%data%</a>';
+// original var from doc // var HTMLschoolURL = '<br><a href="#">%data%</a>';
+
+var HTMLschoolURL = '<br><a class="education-link" href="#">%data%</a>';
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+// original var from doc // var HTMLonlineURL = '<br><a href="#">%data%</a>';
+
+var HTMLonlineURL = '<br><a class="education-link" href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
@@ -92,7 +96,6 @@ function logClicks(x,y) {
 $(document).click(function(loc) {
   // your code goes here!
 });
-
 
 
 /*
