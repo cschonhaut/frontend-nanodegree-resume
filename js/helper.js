@@ -46,7 +46,7 @@ var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data% -- %data_degree%</a>';
-// original var from doc 
+// original var from doc
 //var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
@@ -60,7 +60,7 @@ var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<a href="#">%data% - %data_school%</a>';
 //var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-// original var from doc 
+// original var from doc
 //var HTMLonlineURL = '<br><a href="#">%data%</a>';
 var HTMLonlineURL = '<br><a class="education-link" href="#" target="_blank">%data%</a>';
 
@@ -145,7 +145,7 @@ function initializeMap() {
     //   locations.push(school.location);
     // });
 
-    locations.push(education.schools.location);
+    //locations.push(education.schools.location);
 
 
     // iterates through work locations and appends each location to

@@ -75,16 +75,13 @@ a {
     text-decoration: none;
     margin-top: 10px;
     display: block;
-
 }
-
 .education-link {
     color: black !important;
     line-height: .1;
     padding-bottom: 25px;
     font-style: italic;
 }
-
 .welcome-message {
     font-size: 24px;
     color: #899095;
