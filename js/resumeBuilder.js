@@ -117,79 +117,90 @@ work.display();
 
 
 //EDUCATION SECTION
+
 var education = {
-"schools": {
-	"name": "Shippensburg University",
-	"location": "Shippensburg, PA",
-	"degree": "BA",
-	"major": "Art & Design",
-	"minor": "Communications Journalism and Graphic Design",
-	"dates": "2010-2014",
-	"url": "http://www.ship.edu/"},
-"onlineCourses": {
-	"title": "Front-End Web Development - Udacity",
-	"school": "Udacity",
-	"dates": "2016",
-	"url": "https://www.udacity.com/"}
+"schools": [
+		{
+			"name": "Shippensburg University",
+			"location": "Shippensburg, PA",
+			"degree": "BA",
+			"major": "Art & Design",
+			"minor": "Communications Journalism and Graphic Design",
+			"dates": "2010-2014",
+			"url": "http://www.ship.edu/"
+		},
+		 {
+			"name": "AIY",
+			"location": "York, PA",
+			"degree": "BA",
+			"major": "Interactive & Web",
+			"minor": "Business",
+			"dates": "2014-2016",
+			"url": "http://www.aiy.edu/"
+		}
+	],
+"onlineCourses": [
+		{
+			"title": "Front-End Web Development",
+			"school": "Udacity",
+			"dates": "2016",
+			"url": "https://www.udacity.com/"
+		},
+		{
+			"title": "Full Stack Web Development",
+			"school": "Udacity",
+			"dates": "2017",
+			"url": "https://www.udacity.com/"
+		}
+	]
 };
-
-var formattedEducation = [];
-formattedEducation.push(HTMLschoolName.replace("%data%", education.schools.name).replace("%data_degree%", education.schools.degree));
-formattedEducation.push(HTMLschoolLocation.replace("%data%", education.schools.location));
-//formattedEducation.push(HTMLschoolDegree.replace("%data%", education.schools.degree));
-formattedEducation.push(HTMLschoolDates.replace("%data%", education.schools.dates));
-formattedEducation.push(HTMLschoolMajor.replace("%data%", education.schools.major));
-formattedEducation.push(HTMLschoolMinor.replace("%data%", education.schools.minor));
-formattedEducation.push(HTMLschoolURL.replace("%data%", education.schools.url));
-
-
-formattedEducation.push(HTMLonlineClasses);
-formattedEducation.push(HTMLonlineTitle.replace("%data%", education.onlineCourses.title));
-formattedEducation.push(HTMLonlineDates.replace("%data%", education.onlineCourses.dates));
-//formattedEducation.push(HTMLonlineSchool.replace("%data%", education.onlineCourses.school));
-formattedEducation.push(HTMLonlineURL.replace("%data%", education.onlineCourses.url));
-
-$("#education").append(HTMLschoolStart);
-$(".education-entry").append(formattedEducation);
-
-
-//this.schools.forEach(function(school) {
-//		var name, location, degree, dates, url, majors;
-//		var data = '%data%';
 
 education.display = function() {
-//console.log(education.schools);
-//console.log(Object.keys(education.schools).length > 0);
-	if(Object.keys(education.schools).length > 0 || Object.keys(education.onlineCourses).length > 0) {
-		for(var i in education.schools) {
+
+
+	school_count = Object.keys(education.schools).length;
+	online_course_count = Object.keys(education.onlineCourses).length;
+
+
+	if(school_count > 0) {
+		var formattedEducation = [];
+
+		for (i = 0; i < school_count; i++) {
+
 			$("#education").append(HTMLschoolStart);
 
-			// $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
-			// $(".education-entry:last").append(formattedSchoolLocation);
-			// $(".education-entry:last").append(formattedSchoolMajor);
-			// $(".education-entry:last").append(formattedSchoolMinor);
-			// $(".education-entry:last").append(formattedSchoolDates);
-			// $(".education-entry:last").append(formattedSchoolUrl);
+			formattedEducation.push(HTMLschoolName.replace("%data%", education.schools[i]['name']).replace("%data_degree%", education.schools[i]['degree']));
+			 formattedEducation.push(HTMLschoolLocation.replace("%data%", education.schools[i]['location']));
+			 //formattedEducation.push(HTMLschoolDegree.replace("%data%", education.schools[i]['degree']));
+			 formattedEducation.push(HTMLschoolDates.replace("%data%", education.schools[i]['dates']));
+			 formattedEducation.push(HTMLschoolMajor.replace("%data%", education.schools[i]['major']));
+			 formattedEducation.push(HTMLschoolMinor.replace("%data%", education.schools[i]['minor']));
+			 formattedEducation.push(HTMLschoolURL.replace("#", education.schools[i]['url']).replace("%data%", education.schools[i]['url']));
 		}
-
-		if(education.onlineCourses.length > 0) {
-		//if(Object.keys(education.onlineCourses).length > 0) {
-			//$("#education").append(HTMLonlineClasses);
-			for(i in education.onlineCourses) {
-				$("#education").append(HTMLschoolStart);
-				var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title).replace("#", education.onlineCourses[i].url);
-				var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
-				var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].completed);
-				var formattedOnlineUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url).replace("#", education.onlineCourses[i].url);
-
-				$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
-				$(".education-entry:last").append(formattedOnlineDates);
-				$(".education-entry:last").append(formattedOnlineUrl);
-			}
-		}
-
+		$(".education-entry:last").append(formattedEducation);
 	}
-};
+
+	if(online_course_count > 0) {
+		var formattedOnlineCourses = [];
+		
+		$("#education").append(HTMLonlineClasses);
+		
+		for (i = 0; i < online_course_count; i++) {
+	
+			$("#education").append(HTMLschoolStart);
+
+			 formattedOnlineCourses.push(HTMLonlineTitle.replace("%data%", education.onlineCourses[i]['title']).replace("%data_school%", education.onlineCourses[i]['school']));
+			 //formattedOnlineCourses.push(HTMLonlineSchool.replace("%data%", education.onlineCourses[i]['school']));
+			 formattedOnlineCourses.push(HTMLonlineDates.replace("%data%", education.onlineCourses[i]['dates']));
+			 formattedOnlineCourses.push(HTMLonlineURL.replace("#", education.onlineCourses[i]['url']).replace("%data%", education.onlineCourses[i]['url']));
+
+		}
+
+		$(".education-entry:last").append(formattedOnlineCourses);
+		
+	}
+
+}; // END education.display
 
 education.display();
 //END EDUCATION SECTION
