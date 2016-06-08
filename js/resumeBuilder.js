@@ -28,12 +28,12 @@ var bio = {
 
 bio.display = function() {
 
-var role = "Designer/Developer";
-var formattedRole = HTMLheaderRole.replace("%data%", role);
+var headerRole = "Designer/Developer";
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 
 $("#mapDiv").append(googleMap);
 
-var formattedName = HTMLheaderName.replace("%data%", name);
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
 var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
@@ -130,7 +130,7 @@ var education = {
 			"name": "Shippensburg University",
 			"location": "Shippensburg, PA",
 			"degree": "BA",
-			"major": "Art & Design",
+			"majors": ["Art & Design"],
 			"minor": "Communications Journalism and Graphic Design",
 			"dates": "2010-2014",
 			"url": "http://www.ship.edu/"
@@ -139,7 +139,7 @@ var education = {
 			"name": "AIY",
 			"location": "York, PA",
 			"degree": "BA",
-			"major": "Interactive & Web",
+			"majors": ["Interactive & Web"],
 			"minor": "Business",
 			"dates": "2014-2016",
 			"url": "http://www.aiy.edu/"
@@ -149,13 +149,13 @@ var education = {
 		{
 			"title": "Front-End Web Development",
 			"school": "Udacity",
-			"dates": "2016",
+			"date": "2016",
 			"url": "https://www.udacity.com/"
 		},
 		{
 			"title": "Full Stack Web Development",
 			"school": "Udacity",
-			"dates": "2017",
+			"date": "2017",
 			"url": "https://www.udacity.com/"
 		}
 	]
@@ -179,7 +179,7 @@ education.display = function() {
 			 formattedEducation.push(HTMLschoolLocation.replace("%data%", education.schools[i].location));
 			 //formattedEducation.push(HTMLschoolDegree.replace("%data%", education.schools[i].degree));
 			 formattedEducation.push(HTMLschoolDates.replace("%data%", education.schools[i].dates));
-			 formattedEducation.push(HTMLschoolMajor.replace("%data%", education.schools[i].major));
+			 formattedEducation.push(HTMLschoolMajors.replace("%data%", education.schools[i].majors));
 			 formattedEducation.push(HTMLschoolMinor.replace("%data%", education.schools[i].minor));
 			 formattedEducation.push(HTMLschoolURL.replace("#", education.schools[i].url).replace("%data%", education.schools[i].url));
 		}
@@ -197,7 +197,7 @@ education.display = function() {
 
 			 formattedOnlineCourses.push(HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title).replace("%data_school%", education.onlineCourses[i].school));
 			 //formattedOnlineCourses.push(HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school));
-			 formattedOnlineCourses.push(HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates));
+			 formattedOnlineCourses.push(HTMLonlineDate.replace("%data%", education.onlineCourses[i].date));
 			 formattedOnlineCourses.push(HTMLonlineURL.replace("#", education.onlineCourses[i].url).replace("%data%", education.onlineCourses[i].url));
 
 		}
